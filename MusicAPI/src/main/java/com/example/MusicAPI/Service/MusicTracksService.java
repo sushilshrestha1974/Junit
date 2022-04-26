@@ -30,8 +30,8 @@ public class MusicTracksService {
 		Long tracksId;
 		MusicTracks tracks=tracksRepository.findById(Id).get();
 		tracks.setName(MusicAPIDetails.getName());
-		tracks.setgenre(MusicAPIDetails.getGenre());
-		tracks.setartist(MusicAPIDetails.getartist());
+		tracks.setGenre(MusicAPIDetails.getGenre());
+		tracks.setArtist(MusicAPIDetails.getArtist());
 		tracks.setId(MusicAPIDetails.getId());
 		
 		return tracksRepository.save(tracks);
