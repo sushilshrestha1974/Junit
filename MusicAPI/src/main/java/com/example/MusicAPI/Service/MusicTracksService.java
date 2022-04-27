@@ -27,16 +27,18 @@ public class MusicTracksService {
 	}
 	//Update
 	public MusicTracks updateMusicTracks(Long Id, MusicTracks MusicAPIDetails) {
-		Long tracksId;
 		MusicTracks tracks=tracksRepository.findById(Id).get();
 		tracks.setName(MusicAPIDetails.getName());
 		tracks.setGenre(MusicAPIDetails.getGenre());
 		tracks.setArtist(MusicAPIDetails.getArtist());
-		tracks.setId(MusicAPIDetails.getId());
+		return tracksRepository.save(tracks);
+		}
+	//Patch
+	public MusicTracks patchMusicTracks(Long Id, String newName) {
+		MusicTracks tracks=tracksRepository.findById(Id).get();
+		tracks.setName(newName);
 		
 		return tracksRepository.save(tracks);
-		
-		
 	}
 }
 
